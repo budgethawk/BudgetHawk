@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="budgetApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+		<title>Budget Hawk</title>
+
+		<!-- Latest compiled and minified Bootstrap CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<link href="styles/style.css" rel="stylesheet" type="text/css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+        
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+	</head>
+    
+    <body>  
+        <div ng-controller="purchaseCtrl">
+            
+            <h1>Budget Hawk</h1>
+            
+            <div class="drop-form-area">
+                <button class="btn btn-primary" ng-show="show_form" ng-click="formToggle()">Add Purchase
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> 
+                <!-- Include form template which is used to insert data into database -->
+                <div ng-include src="'templates/newpurchaseform.html'"></div>                
+            </div>
+                   
+            
+
+            <!-- Include form template which is used to edit and update data into database -->          
+            <div ng-include src="'templates/editpurchaseform.html'"></div>
+
+            <h3 id="table-title">Your spending</h3>
+            
+            <div class=table-responsive> 
+                <table class="table table-hover">
+                    <th>Amount</th>
+                    <th>Merchant</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  <tr ng-repeat="x in purchases">                      
+                    <td>{{ x.Amount }}</td>
+                    <td>{{ x.Merchant }}</td>
+                    <td>{{ x.PurchaseDate }}</td>
+                    <td>
+                        <button class="btn btn-warning" ng-click="editPurchase(purchase)" title="Edit"><span class="glyphicon glyphicon-edit"></span></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="deletePurchase(purchase)" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                    </td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+        <script src="/scripts/angularcode.js"></script>
+    </body>
+</html>

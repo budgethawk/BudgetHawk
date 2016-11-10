@@ -1,0 +1,16 @@
+<form name="newPurchase" role="form" id="newpurchaseform" ng-submit="insertPurchase(purchase);">  
+    <h3>Enter your spending amounts here</h3>
+    <div class="form-group">
+        <label for="amount">Amount:</label>        
+        <input type="number" step="any" class="form-control" id="amount" name="amount" ng-model="purchase.amount" placeholder="Price">
+    </div>            
+    <div class="form-group">
+        <label for="merchant">Merchant:</label>
+        <input type="text" class="form-control" id="merchant" name="merchant" ng-model="purchase.merchant" placeholder="Seller">
+    </div>
+    <div class="form-group">
+        <label for="purchasedate">Date:</label>
+        <input type="datetime-local" class="form-control" id="purchasedate" name="purchasedate" ng-model="purchase.purchasedate">
+    </div>
+    <button type="submit" class="btn btn-default" name="submit">Submit</button>
+</form>

@@ -1,0 +1,16 @@
+<form name="editPurchase" role="form" id="editpurchaseform" ng-submit="editPurchase(currentPurchase);">  
+    <h3>Update the Selected Purchase</h3>
+    <div class="form-group">
+        <label for="amount">Amount:</label>        
+        <input type="number" step="any" class="form-control" id="amount" name="amount" ng-model="currentPurchase.amount" value="{{currentPurchase.amount}}">
+    </div>            
+    <div class="form-group">
+        <label for="merchant">Merchant:</label>
+        <input type="text" class="form-control" id="merchant" name="merchant" ng-model="currentPurchase.merchant" value="{{currentPurchase.merchant}}">
+    </div>
+    <div class="form-group">
+        <label for="purchasedate">Date:</label>
+        <input type="datetime-local" class="form-control" id="purchasedate" name="purchasedate" ng-model="currentPurchase.purchasedate" value="{{currentPurchase.purchasedate}}">
+    </div>
+    <button type="submit" class="btn btn-default" name="submit">Submit</button>
+</form>
